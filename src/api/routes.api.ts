@@ -8,6 +8,7 @@ import { userRoutes } from './users';
 
 export default function api(app: Express, context: ApiContextInterface): void {
   userRoutes(app, context);
+  app.get('/users', (_req: any, res: any) => res.json({ hello: 'world' }));
 
   app.use('*', (_req, res) => {
     res
