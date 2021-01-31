@@ -1,0 +1,24 @@
+version: '3'
+services:
+  # mongo:
+  #   container_name: mongo-typescript-express-boilerplate
+  #   restart: always
+  #   image: mongo:latest
+  #   ports:
+  #     - 27017:27017
+  #   volumes:
+  #     - ./data/db:/data/db
+
+  api:
+    container_name: api-typescript-express-boilerplate
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./
+    volumes:
+      - /app/node_modules
+      - ./:/app
+    environment:
+      - NODE_ENV=development
+    ports:
+      - '5000:5000'
